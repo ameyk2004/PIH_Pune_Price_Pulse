@@ -12,7 +12,7 @@ baner_model = RandomForestRegressor(n_estimators=511, max_depth=6, random_state=
 
 baner_model.fit(dataset.drop(["Furnishing"],axis = 1),rent)
 
-test = pd.read_csv("Data/Rent Data/test.csv")
+test = pd.read_csv("Data/Rent Data/Baner_Final.csv")
 
 # print(baner_model.predict(test))
 
