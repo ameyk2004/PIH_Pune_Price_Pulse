@@ -4,7 +4,6 @@ from flask import Flask, render_template, request
 from contact_mail import send_mail
 from Database import area_data
 import datetime
-import pywhatkit
 import csv
 
 from Hinjewadi_Magicbricks import hinjewadi_model
@@ -63,7 +62,7 @@ def contact():
         if(sentiment_analysis(contact_us['message']) < 0):
             message_to_send = f"Hi *{contact_us['name']}*,\nThank you for reaching out to us! We've received your message. \nSorry for the inconvenience caused. \n\nOur team is on it and will get back to you shortly."
 
-        pywhatkit.sendwhatmsg_instantly(f"+91{contact_us['phone_num']}", message_to_send)
+        # pywhatkit.sendwhatmsg_instantly(f"+91{contact_us['phone_num']}", message_to_send)
 
         send_mail(recipient_email=contact_us['email'],subject=f"Response to {contact_us['name']}",message=message_to_send)
         return render_template('/contact.html')
